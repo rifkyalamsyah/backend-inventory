@@ -31,4 +31,11 @@ class Barang_model  extends CI_Model
 		$this->db->where('id_barang', $id_barang);
 		$this->db->update('barang', $data);
 	}
+
+
+	public function hapus_data($id_barang)
+	{
+		$this->db->where('id_barang', $id_barang);
+		$this->db->delete('barang');
+	}
 }
