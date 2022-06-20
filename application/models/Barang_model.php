@@ -7,6 +7,7 @@ class Barang_model  extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('barang');
+		$this->db->where('status_delete', 0);
 		return $this->db->get();
 	}
 
@@ -37,5 +38,16 @@ class Barang_model  extends CI_Model
 	{
 		$this->db->where('id_barang', $id_barang);
 		$this->db->delete('barang');
+	}
+
+
+	public function soft_delete_data($id_barang)
+	{
+		$data = array(
+			'status_delete' => 1
+		);
+
+		$this->db->where('id_barang', $id_barang);
+		$this->db->update('barang', $data);
 	}
 }
