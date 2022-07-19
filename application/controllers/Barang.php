@@ -29,11 +29,11 @@ class Barang extends CI_Controller
 							<td>' . $value->stok . '</td>
 							<td><img src="' . base_url() . '/foto/' . $value->id_barang . '/' . $value->foto_produk . '"
 							width="50"></td>
-							<td>Read | <a href="#' . $value->id_barang . '" class="linkHapusBarang"
-							>Hapus</a> | <a href="#' . $value->id_barang . '" class="linkEditBarang" >Edit</a></td>
+							<td><a href="#'. $value->id_barang .'" class="linkEditBarang btn btn-primary btn-sm">Read</a> | <a href="#' . $value->id_barang . '" class="linkEditBarang btn btn-warning btn-sm" >Edit</a> | <a href="#' . $value->id_barang . '" class="linkHapusBarang btn btn-danger btn-sm"
+							>Hapus</a> </td>
 							</tr>';
 		}
-		
+
 		$data_json = array(
 			'konten' => $konten,
 		);
@@ -49,6 +49,7 @@ class Barang extends CI_Controller
 		$arr_input = array(
 			'nama_barang' => $this->input->post('nama_barang'),
 			'deskripsi' => $this->input->post('deskripsi'),
+			'stok' => $this->input->post('stok'),
 		);
 
 		$this->Barang_model->insert_data($arr_input);
@@ -95,6 +96,7 @@ class Barang extends CI_Controller
 		$arr_input = array(
 			'nama_barang' => $this->input->post('nama_barang'),
 			'deskripsi' => $this->input->post('deskripsi'),
+			'stok' => $this->input->post('stok'),
 		);
 
 		$this->Barang_model->update_data($id_barang, $arr_input);
